@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <title>Catmail</title>
+     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+</head>
+<body>
+    <div class="container_mail">
+        <div class="mail-box">
+            <aside class="sm-side">
+                <div class="bg-second h-screen sidebar scale-up-tr flex flex-col justify-between">
+                    <div>
+                        <div class="logo-holder logo-4">
+                            <a href="/"><h3>CatMail</h3></a>
+                        </div>
+                        <div class="inbox-body bg-second w-full">
+                            <button href="#myModal" data-toggle="modal" title="Compose" class="btn btn-compose btn-primary flex justify-center">
+                                <div>
+                                    <i class="fa fa-send"></i>
+                                </div>
+                                <div class="ml-2 box-hover">
+                                    Compose
+                                </div>  
+                            </button>
+                        </div>
+                        <ul class="inbox-nav inbox-divider bg-second">
+                            {{#if (ifeq route "/")}}
+                                <li class="active">
+                                {{else}}
+                                <li>
+                            {{/if}}
+                                <a href="/" class="flex align-center">
+                                    <div>
+                                        <i class="fa fa-inbox"></i> 
+                                    </div>
+                                    <div class="flex flex-1 justify-between box-hover ml-2">
+                                        Inbox
+                                    </div> 
+                                </a>
+                            </li>
+                            {{#if (ifeq route "/sent-mail")}}
+                                <li class="active">
+                                {{else}}
+                                <li>
+                            {{/if}}
+                                <a href="/sent-mail" class="flex">
+                                    <div>
+                                        <i class="fa fa-envelope-o"></i>
+                                    </div>
+                                    <div class="flex flex-1 justify-between box-hover ml-2">
+                                        Sent Mail
+                                    </div> 
+                                </a>
+                            </li>
+                            {{#if (ifeq route "/important")}}
+                                <li class="active">
+                                {{else}}
+                                <li>
+                            {{/if}}
+                                <a href="/important" class="flex">
+                                    <div>
+                                        <i class="fa fa-bookmark-o"></i>
+                                    </div>
+                                    <div class="flex flex-1 justify-between box-hover ml-2">
+                                        Important
+                                    </div> 
+                                </a>
+                            </li>
+                            {{#if (ifeq route "/drafts")}}
+                                <li class="active">
+                                {{else}}
+                                <li>
+                            {{/if}}
+                                <a href="/drafts" class="flex">
+                                    <div>
+                                        <i class=" fa fa-external-link"></i>
+                                    </div>
+                                    <div class="flex flex-1 justify-between box-hover ml-2">
+                                        Drafts
+                                    </div> 
+                                </a>
+                            </li>
+                            {{#if (ifeq route "/delete")}}
+                                <li class="active">
+                                {{else}}
+                                <li>
+                            {{/if}}
+                                <a href="/delete" class="flex">
+                                    <div>
+                                        <i class=" fa fa-trash-o"></i>
+                                    </div>
+                                    <div class="flex flex-1 justify-between box-hover ml-2">
+                                        Trash
+                                    </div> 
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-pills nav-stacked labels-info bg-second w-full">
+                            <li class="flex justify-between align-center px-1">
+                                <h4 class="bold text-primary text-center">Labels</h4>
+                                <div class="mr-2 text-second box-hover cursor-pointer" href="#createLabelModal" data-toggle="modal">
+                                    <i  class=" fa fa-add"></i>
+                                </div>
+                            </li>
+                            <div id="labelList" class="text-second"></div>
+                        </ul>
+                    </div>
+
+                    {{!-- User --}}
+                    <div class="user-head dropdown bg-second flex align-center justify-center w-full">
+                        <a class="inbox-avatar" href="javascript:;">
+                            <img width="44" hieght="40" src="{{user.avatar}}">
+                        </a>
+                        <div class="box-hover flex flex-1 align-center">
+                            <div class="flex">
+                                <div class="user-name">
+                                    <h5 class="text-primary" style="word-wrap: break-word;">{{user.firstname}} {{user.lastname}}</h5>
+                                    <span title="{{user.email}}" class="text-second" style="word-wrap: break-word; flex-wrap: wrap">{{truncateString user.email 13}}</span>
+                                </div>
+                                {{!-- <a class="mail-dropdown pull-right" href="javascript:;">
+                                    <i class="fa fa-chevron-down"></i>
+                                </a> --}}
+                                <div class="btn-group hidden-phone">
+                                    <a class="mail-dropdown pull-right" data-toggle="dropdown" href="javascript:;">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropup-user">
+                                        <li><a href="/details"><i class="fa fa-user"></i><span class="ml-2">User Management</span> </a></li>
+                                        <li class="divider"></li>
+                                        <li class="delete-label" id="btnLogout"><a href="#" style="color: red"><i class="fa fa-arrow-right"></i> <span class="ml-2">Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <aside class="lg-side">
+                {{{body}}}
+            </aside>
+        </div>
+    </div>
+<!-- Modal Compose-->
+<div aria-hidden="true" aria-labelledby="myModal" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Compose</h4>
+            </div>
+            <div class="modal-body">
+                <form id="compose-form" role="form" class="form-horizontal" action="/api/mail/compose" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                
+                        <label class="col-lg-2 control-label">To <span class="p-0 m-0" style="color:red">(*)</span><p class="m-0 p-0" title="Sử dụng dấu phẩy để ngăn cách giữa các địa chỉ email. Ví dụ: john@example.com, jane@example.com, peter@example.com." class="text-second text-sm"><i class="fa fa-circle-info"></i></p></label>
+                        <div class="col-lg-10">
+                            <input name="receiver" type="text" placeholder="" id="receiverInput" class="form-control" required>
+                        </div> 
+                    </div>
+                     <div class="form-group">
+                        <label class="col-lg-2 control-label">Bcc<p class="m-0 p-0" title="Sử dụng dấu phẩy để ngăn cách giữa các địa chỉ email. Ví dụ: john@example.com, jane@example.com, peter@example.com." class="text-second text-sm"><i class="fa fa-circle-info"></i></p></label>
+                        <div class="col-lg-10">
+                            <input name="bcc" type="text" placeholder="" id="bccInput" class="form-control">
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Subject <span class="p-0 m-0" style="color:red">(*)</span></label>
+                        <div class="col-lg-10">
+                            <input name="subject" type="text" placeholder="" id="subjectInput" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Message</label>
+                        <div class="col-lg-10">
+                            <textarea rows="10" cols="30" class="form-control" id="messageInput" name="message"></textarea>
+                        </div>
+                    </div>
+                    <input id="attachs" class="demo1" name="item" type="file" multiple placeholder="Drag & Drop or Browse" />
+                    <hr>
+                    <div class="flex justify-end">
+                        <div class="btn bg-theme mr-2" id="btnDraft">Draft</div>
+                        <button class="btn btn-primary btn-send" type="submit">Send</button>
+                    </div>
+
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Modal Forward-->
+<div aria-hidden="true" aria-labelledby="myModalForward" role="dialog" tabindex="-1" id="myModalForward"
+    class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Forward</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="myFormForward" class="form-horizontal" action="/api/mail/forward" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">To</label>
+                        <div class="col-lg-10">
+                            <input name="receiver" type="text" placeholder="" id="receiverForwardInput" class="form-control">
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Bcc</label>
+                        <div class="col-lg-10">
+                            <input name="bcc" type="text" placeholder="" id="bccForwardInput" class="form-control">
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Message</label>
+                        <div class="col-lg-10">
+                            <textarea rows="10" cols="30" class="form-control" id="messageForwardInput" name="message"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="wrapper">
+                        <input class="file-input" type="file" name="item" id="file" style="display:none" multiple>
+                        <label for="file">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Browse File to Upload</p>
+                        </label>
+                        <section class="progress-area"></section>
+                        <section class="uploaded-area"></section>
+                    </div>
+                    <hr>
+                    <div class="flex justify-end">
+                        <button class="btn btn-primary btn-send" id="btnForwardSubmit" type="submit">Forward</button>
+                    </div>
+                    <input type="text" id="parent_mail" name="parent_mail" hidden>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- Modal Create Label -->
+<div class="modal fade" id="createLabelModal" tabindex="-1" aria-labelledby="createLabelModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header flex justify-between">
+        <h5 class="modal-title" id="createLabelModalLabel">Tạo nhãn mới</h5>
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="createLabelForm">
+            <div class="mb-3">
+                <label for="labelName" class="form-label control-label">Tên nhãn</label>
+                <input type="text" class="form-control" id="labelName" name="name" placeholder="Nhập tên nhãn">
+            </div>
+            <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="labelHide">
+                <label class="form-check-label" for="labelHide">Ẩn nhãn</label>
+            </div>
+           
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-primary">Tạo nhãn</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal User add Label -->
+<div class="modal fade" id="myModalChoiceLabel" tabindex="-1" aria-labelledby="myModalChoiceLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-content-labelas">
+            <h4 class="modal-title text-center my-2 text-primary">Label As</h4>
+
+            <div class="modal-body labels-container">
+                <form id="addLabelMail">
+                    <div id="allLabels"></div>
+                    <button type="submit" class="btn btn-primary flex justify-center rounded-base px-2 py-1"
+                        id="addLabel" style="margin: auto;">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal error -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header error">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+            <h4 class="modal-title">Error</h4>
+      </div>
+      <div class="modal-body">
+        <p id="error-message"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Confirm lock -->
+<div id="flash-alert" class="alert alert-success text-center w-25 mx-auto my-3" style="position: fixed; bottom: 10px; right: 10px; z-index: 100;" hidden>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <span>Thành công</span>
+</div>
+<input id="userId" value="{{user._id}}" hidden/>
+
+<!-- Link to Font Awesome icons -->
+<script src="./js/main.js"></script>
+<script src="./js/home.js"></script>
+
+</body>
+</html>

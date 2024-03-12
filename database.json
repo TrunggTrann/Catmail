@@ -1,0 +1,382 @@
+{   
+    "admin": [
+        {
+            "username": "admin",
+            "password": "123456"
+        }
+    ],
+    "accounts": [
+        {
+            "_id": "643a15de5c239d14e5de6838",
+            "email": "admin@gmail.com",
+            "password": "123456",
+            "firstname": "Huynh",
+            "lastname": "Vy",
+            "role": "admin"
+        },
+        {
+            "_id": "643a15de5c239d14e5de6839",
+            "email": "huynhngocvy@gmail.com",
+            "password": "123456",
+            "firstname": "Huynh",
+            "lastname": "Vy",
+            "role": "user",
+            "address": "798/59/18, Tran Xuan Soan, quan 7",
+            "phone": "0987654321"
+        },
+        {
+            "_id": "643a15de5c239d14e5de6840",
+            "email": "tranhieutrung@gmail.com",
+            "password": "123456",
+            "firstname": "Tran",
+            "lastname": "Trung",
+            "avatar": "/avatar/02366b2f-69b7-4271-8d04-a9b057dcb26c.png",
+            "role": "user",
+            "address": "quan 7, Thanh pho Ho Chi Minh",
+            "phone": "0987654322"
+        },
+        {
+            "_id": "643a15de5c239d14e5de6841",
+            "email": "john.doe@example.com",
+            "password": "password",
+            "firstname": "John",
+            "lastname": "Doe",
+            "role": "user",
+            "avatar": "/avatar/f5a03dce-c123-4098-9689-85908e43ec56.png",
+            "address": "123 Main St, Anytown USA",
+            "phone": "555-1234"
+        },
+        {
+            "_id": "643a15de5c239d14e5de6842",
+            "email": "jimmy.smith@example.com",
+            "password": "password",
+            "firstname": "Jimmy",
+            "lastname": "Smith",
+            "role": "user",
+            "avatar": "/avatar/42bc2255-3d46-414f-a1c5-19653c1f142c.jpg",
+            "address": "789 Elm St, Anytown USA",
+            "phone": "555-9012"
+        },
+        {
+            "_id": "643a15de5c239d14e5de6843",
+            "email": "amy.johnson@example.com",
+            "password": "password",
+            "firstname": "Amy",
+            "lastname": "Johnson",
+            "role": "user",
+            "avatar": "/avatar/78f0c672-bf07-48c3-95e8-a3541f0aa088.jpg",
+            "address": "321 Maple St, Anytown USA",
+            "phone": "555-3456"
+        },
+        {
+            "_id": "643a15de5c239d14e5de6844",
+            "email": "jack.white@example.com",
+            "password": "password",
+            "firstname": "Jack",
+            "lastname": "White",
+            "role": "user",
+            "address": "567 Cherry St, Anytown USA",
+            "phone": "555-7890"
+        }
+    ],
+    "badKeywords": [
+        { "keyword": "Urgent" },
+        { "keyword": "Account" },
+        { "keyword": "Password" },
+        { "keyword": "Login" },
+        { "keyword": "Debt" },
+        { "keyword": "Lottery" },
+        { "keyword": "bankruptcy" }
+    ],
+    "configs": {
+        "maxAttachmentSize": 5242880,
+        "maxAttachments": 10,
+        "maxEmailSize": 20971520,
+        "maxRecipients": 15
+    },
+    "mails": [{
+        "_id": "6443cf5c70ec9f161d8cb602",
+        "sender": {
+          "_id": "643a15de5c239d14e5de6839",
+          "isRead": true,
+          "isDeleted": false,
+          "isImportant": true
+        },
+        "receiver": [
+          {
+            "_id": "643a15de5c239d14e5de6840",
+            "isRead": false,
+            "isDeleted": false,
+            "isImportant": false
+          }
+        ],
+        "bcc": [],
+        "message": "Greetings,\r\n\r\nDo you want to start your career as a Mobile App Developer? If the answer is YES, then this is for you!\r\n\r\nThere are more than 700 new job postings for a mobile app developer every 24 hours. If you want to start your career as one, 👉 Click here 👈\r\n\r\nWith regards,\r\n\r\nTeam EdYoda",
+        "subject": "Greting",
+        "attachments": [
+          {
+            "id": "0afc9157-c1dd-4e02-98f7-598f83fc6369",
+            "originalName": "people-collaborating-with-tech-.png",
+            "contentType": "image/png",
+            "fileName": "0afc9157-c1dd-4e02-98f7-598f83fc6369.png",
+            "size": 93808,
+            "_id": "6443cf5c70ec9f161d8cb603"
+          }
+        ],
+        "date":"2023-04-22T12:13:16.692Z",
+        "__v": 0
+      },{
+        "_id": "6443d48d2c4a9937f3113329",
+        "sender": {
+          "_id": "643a15de5c239d14e5de6841",
+          "isRead": true,
+          "isDeleted": false,
+          "isImportant": false
+        },
+        "receiver": [
+          {
+            "_id": "643a15de5c239d14e5de6839",
+            "isRead": true,
+            "isDeleted": false,
+            "isImportant": false
+          }
+        ],
+        "bcc": [],
+        "message": "Using Softr, Untapped Capital has been able to build a dashboard for their investors that links to their Airtable CRM. Read the case study to find out how Softr can be used as an investor portal solution for tracking thousands of startups and keeping its LPs informed of what's happening in their portfolios.\r\n\r\n \r\n\r\nIn their own words: \"I’ll likely start setting up a lot more quick projects now that I know how to use Softr\"",
+        "subject": "How Untapped Capital built an Investor Portal",
+        "attachments": [
+          {
+            "id": "61178b48-1baa-4e42-a847-ef44285fd861",
+            "originalName": "myCV.pdf",
+            "contentType": "application/pdf",
+            "fileName": "61178b48-1baa-4e42-a847-ef44285fd861.pdf",
+            "size": 588467,
+            "_id":  "6443d48d2c4a9937f311332a"
+          }
+        ],
+        "date": "2023-04-22T12:35:25.705Z",
+        "__v": 0
+      },{
+        "_id": "6443d5f12c4a9937f3113364",
+        "sender": {
+          "_id": "643a15de5c239d14e5de6842",
+          "isRead": true,
+          "isDeleted": false,
+          "isImportant": false
+        },
+        "receiver": [
+          {
+            "_id":  "643a15de5c239d14e5de6840",
+            "isRead": false,
+            "isDeleted": false,
+            "isImportant": false
+          }
+        ],
+        "bcc": [
+          {
+            "_id":  "643a15de5c239d14e5de6839",
+            "isRead": false,
+            "isDeleted": false,
+            "isImportant": true
+          }
+        ],
+        "message": "Khoa CNTT thông báo đến các bạn về việc tổ chức workshop Vượt thử thách - Đón tương lai cùng Công Ty Cổ phần Chứng khoán Bảo Việt\r\nNội dung chương trình: \r\nCách thức tiếp cận nhà tuyển dụng trong xu thế hiện nay; \r\nCách thức viết CV, cách thức phỏng vấn;\r\nBí quyết duy trì cảm hứng và động lực trong học tập và làm việc;\r\nGiao lưu và trao đổi giữa báo cáo viên và sinh viên tham gia chương trình; \r\nGiới thiệu về chương trình tuyển dụng 2023. ",
+        "subject": "Đăng ký tham gia workshop chủ đề: Vượt thử thách - Đón tương lai cùng Công Ty CP Chứng khoán Bảo Việt",
+        "attachments": [
+          {
+            "id": "180cd1ff-118f-48d8-a12d-bbbde81aa26f",
+            "originalName": "Beige Illustrated Cat T-Shirt.png",
+            "contentType": "image/png",
+            "fileName": "180cd1ff-118f-48d8-a12d-bbbde81aa26f.png",
+            "size": 392667,
+            "_id":  "6443d5f12c4a9937f3113365"
+          },
+          {
+            "id": "8c53d677-8257-4c85-a002-6cf529a56a8e",
+            "originalName": "Cute Cat Grooming Logo.png",
+            "contentType": "image/png",
+            "fileName": "8c53d677-8257-4c85-a002-6cf529a56a8e.png",
+            "size": 32903,
+            "_id":  "6443d5f12c4a9937f3113366"
+          },
+          {
+            "id": "ee40c0f3-d012-45a9-a6b8-6e7820f59810",
+            "originalName": "ad133b84-5c46-40e6-af56-2fd665495455.zip",
+            "contentType": "application/x-zip-compressed",
+            "fileName": "ee40c0f3-d012-45a9-a6b8-6e7820f59810.zip",
+            "size": 98973,
+            "_id":  "6443d5f12c4a9937f3113367"
+          }
+        ],
+        "date": "2023-04-22T12:41:21.570Z",
+        "__v": 0
+      },{
+        "_id": "6443d76b572b66ff40329c1c",
+        "sender": {
+          "_id": "643a15de5c239d14e5de6839",
+          "isRead": true,
+          "isDeleted": false,
+          "isImportant": true
+        },
+        "receiver": [
+          {
+            "_id":  "643a15de5c239d14e5de6841",
+            "isRead": true,
+            "isDeleted": false,
+            "isImportant": false
+          }
+        ],
+        "bcc": [],
+        "message": "I hope this email finds you well. I'm excited to share some great news with you. We at Code with Beto have been working hard to bring you more value and resources for your development journey. That's why I'm thrilled to announce that we are now translating our popular React Native course to English.\r\n\r\nThe first two sections of the course are now available, and we are releasing more every day. This course is designed to help developers like you master the fundamentals of React Native, from setting up your development environment to building complex mobile applications.\r\n\r\nWe have put a lot of effort into creating a comprehensive and engaging course that covers everything you need to know about React Native. By the end of the course, you'll have the skills and confidence to build your own mobile apps and take your career to the next level.\r\n\r\nIf you're interested in taking the course, simply visit codewithbeto.dev and sign up today. 🚀\r\n\r\nThank you for being a part of the Code with Beto community. We're committed to helping developers like you succeed and achieve your goals. If you have any questions or feedback, please don't hesitate to reach out. 🤝\r\n\r\nBest regards, 😎\r\n\r\nAlberto Moedano",
+        "subject": "Learn React Native in English with Code with Beto!",
+        "attachments": [
+          {
+            "id": "64aa548f-ab52-4fa7-97a7-bcebcff9eda9",
+            "originalName": "people-collaborating-with-tech-.png",
+            "contentType": "image/png",
+            "fileName": "64aa548f-ab52-4fa7-97a7-bcebcff9eda9.png",
+            "size": 93808,
+            "_id":  "6443d76b572b66ff40329c1d"
+          },
+          {
+            "id": "646ee8f5-1809-49e2-8190-5bd47856289c",
+            "originalName": "52100374Lab89.zip",
+            "contentType": "application/x-zip-compressed",
+            "fileName": "646ee8f5-1809-49e2-8190-5bd47856289c.zip",
+            "size": 98973,
+            "_id":  "6443d76b572b66ff40329c1e"
+          }
+        ],
+        "date": "2023-04-22T12:47:39.664Z",
+        "__v": 0
+      },{
+        "_id": "6443d97a572b66ff40329c45",
+        "sender": {
+          "_id": "643a15de5c239d14e5de6842",
+          "isRead": true,
+          "isDeleted": false,
+          "isImportant": false
+        },
+        "receiver": [
+          {
+            "_id":  "643a15de5c239d14e5de6839",
+            "isRead": false,
+            "isDeleted": false,
+            "isImportant": false
+          }
+        ],
+        "bcc": [],
+        "message": "Hi Vy Huỳnh 214,\r\n\r\nMillions of students have a learning, physical, or visual disability that prevents them from reading conventional print. This makes the majority of educational materials for science, technology, engineering, and math (STEM) fields inaccessible to them. What if machine learning could help bridge that gap?\r\n\r\nIn this competition, you’ll extract data represented by four types of charts commonly found in STEM textbooks.",
+        "subject": "Competition Launch: Benetech - Making Graphs Accessible",
+        "attachments": [
+          {
+            "id": "eb0d92e8-5008-40f8-81ad-3740984c27b8",
+            "originalName": "Noi quy phong thi 11-03-2020 14.25.52(1).pdf",
+            "contentType": "application/pdf",
+            "fileName": "eb0d92e8-5008-40f8-81ad-3740984c27b8.pdf",
+            "size": 2080597,
+            "_id":  "6443d97a572b66ff40329c46"
+          },
+          {
+            "id": "8c6ac2fc-3980-4d9c-878c-36becc13cb2d",
+            "originalName": "Quy dinh doi coi thi.doc",
+            "contentType": "application/msword",
+            "fileName": "8c6ac2fc-3980-4d9c-878c-36becc13cb2d.doc",
+            "size": 47104,
+            "_id":  "6443d97a572b66ff40329c47"
+          }
+        ],
+        "date":"2023-04-22T12:56:26.598Z",
+        "__v": 0
+      },{
+        "_id": "6443df58572b66ff40329c79",
+        "sender": {
+          "_id": "643a15de5c239d14e5de6844",
+          "isRead": true,
+          "isDeleted": false,
+          "isImportant": false
+        },
+        "receiver": [
+          {
+            "_id":  "643a15de5c239d14e5de6839",
+            "isRead": true,
+            "isDeleted": false,
+            "isImportant": true
+          }
+        ],
+        "bcc": [],
+        "message": "Hi HuynhNgocVy,\r\n\r\nI saw your profile online and wanted to reach out! You might be a great fit for many high-paying remote U.S. software engineering opportunities on Turing.com.\r\n\r\nTuring is based in Palo Alto, California. Turing’s AI-based Talent Cloud matches exceptional software engineers from around the world to full-time remote software positions at top U.S. and Silicon Valley companies.",
+        "subject": "HuynhNgocVy, We have awesome remote U.S. jobs waiting for engineers like you.",
+        "attachments": [
+          {
+            "id": "114dbb9f-5266-4faf-b816-af804e0af601",
+            "originalName": "CV.pdf",
+            "contentType": "application/pdf",
+            "fileName": "114dbb9f-5266-4faf-b816-af804e0af601.pdf",
+            "size": 420293,
+            "_id":  "6443df58572b66ff40329c7a"
+          }
+        ],
+        "date":  "2023-04-22T13:21:28.968Z",
+        "__v": 0
+      },{
+        "_id": "6443ee0961b43a567a8510f1",
+        "sender": {
+          "_id": "643a15de5c239d14e5de6843",
+          "isRead": true,
+          "isDeleted": false,
+          "isImportant": false
+        },
+        "receiver": [
+          {
+            "_id":  "643a15de5c239d14e5de6839",
+            "isRead": false,
+            "isDeleted": false,
+            "isImportant": false
+          }
+        ],
+        "bcc": [
+          {
+            "_id":  "643a15de5c239d14e5de6840",
+            "isRead": false,
+            "isDeleted": false,
+            "isImportant": false
+          },
+          {
+            "_id":  "643a15de5c239d14e5de6841",
+            "isRead": false,
+            "isDeleted": false,
+            "isImportant": false
+          }
+        ],
+        "message": "Your best camera is likely the phone in your pocket. You might snap a pic of a landmark and share it with friends. Of course, many people may have taken photos of the same thing, perhaps from a different angle.",
+        "subject": "Competition Launch: Image Matching Challenge 2023",
+        "attachments": [],
+        "date": "2023-04-22T14:24:09.774Z",
+        "__v": 0
+    }],
+  "mailforward": [{
+    "_id": "6443f9c09cff130636311abd",
+    "parent_mail": "6443d5f12c4a9937f3113364",
+    "sender": {
+      "_id": "643a15de5c239d14e5de6840",
+      "isRead": true,
+      "isDeleted": false,
+      "isImportant": false
+    },
+    "receiver": [
+      {
+        "_id": "643a15de5c239d14e5de6839",
+        "isRead": true,
+        "isDeleted": true,
+        "isImportant": false
+      }
+    ],
+    "bcc": [],
+    "message": "Chuyen tiep thong tin toi ban",
+    "subject": "Fwd: Đăng ký tham gia workshop chủ đề: Vượt thử thách - Đón tương lai cùng Công Ty CP Chứng khoán Bảo Việt",
+    "attachments": [],
+    "date": "2023-04-22T13:14:08.024Z",
+    "__v": 0
+  }]
+}

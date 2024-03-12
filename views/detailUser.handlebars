@@ -1,0 +1,92 @@
+<head>
+    <title>Catmail</title>
+</head>
+<div class="container">
+    <h3 class="text-primary bold">My Profile</h3>
+    <div class="flex justify-center">
+      <form id="changeAvatarForm" action="/api/account/update/{{user._id}}" method="POST">
+        <div class="relative w-xl h-xl">
+          <img class="w-full h-full rounded-full" id="avatar-preview" src="{{user.avatar}}" />
+          <label for="avatar" class="absolute rounded-full btn-primary text-white flex justify-center align-center" style="padding: 7px;bottom:8px;right: 8px">
+            <i class="fa fa-camera fa-2xs"></i>
+          </label>
+          <input type="file" name="avatar" id="avatar" accept="image/*" hidden style="display:none">
+        </div>
+        <div class="justify-center none my-2" id="saveBtn" ><button class="btn btn-primary text-white px-3 py-2" type="submit">Save</button></div>
+      </form>
+    </div>
+    <div class="my-2 rounded-xl border px-3 py-2">
+      <div class="flex justify-between">
+        <h4 class="text-bold bold">Personal Information</h4>
+        <div class="flex align-center justify-center" href="#myModalEdit" data-toggle="modal">
+          <i class="fa fa-pencil-square-o fa-2xs"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <p class="text-second text-sm p-0 m-0">Firstname</p>
+            <p class="text-bold p-0 m-0">{{user.firstname}}</p>
+          </div>
+          <div class="mb-3">
+            <p class="text-second text-sm p-0 m-0">Email Address</p>
+            <p class="text-bold p-0 m-0">{{user.email}}</p>
+          </div>
+          <div class="mb-3">
+            <p class="text-second text-sm p-0 m-0">Location</p>
+            <p class="text-bold p-0 m-0">{{#if (ifeq user.location undfied)}} Not update {{else}} {{user.location}} {{/if}}</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <p class="text-second text-sm p-0 m-0">Lastname</p>
+            <p class="text-bold p-0 m-0">{{user.lastname}}</p>
+          </div>
+          <div class="mb-3">
+            <p class="text-second text-sm p-0 m-0">Phone</p>
+            <p class="text-bold p-0 m-0">{{#if (ifeq user.phone undfied)}} Not upldate {{else}} {{user.location}} {{/if}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- Modal Compose-->
+<div aria-hidden="true" aria-labelledby="myModal" role="dialog" tabindex="-1" id="myModalEdit"
+    class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Edit Profile</h4>
+            </div>
+            <div class="modal-body">
+              <form action="/api/account/update/{{user._id}}" method="POST">
+                <div class="flex justify-between">
+                  <div class="form-group">
+                    <label for="name">First Name</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" value="{{user.firstname}}" placeholder="Enter name">
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Last Name</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" value="{{user.lastname}}" placeholder="Enter name">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" name="email" value="{{user.email}}" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="location">Location</label>
+                  <input type="text" class="form-control" id="location" name="location" value="{{user.location}}" placeholder="Enter location">
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="text" class="form-control" id="phone" name="phone"  value="{{user.phone}}" placeholder="Enter phone">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="./js/detail.js"></script>

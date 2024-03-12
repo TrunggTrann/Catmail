@@ -1,0 +1,82 @@
+<head>
+    <title>Drafts</title>
+</head>
+
+<div class="inbox-head">
+    <div>
+        <h3 class="text-primary text-xl bold">Drafts</h3>
+        <p class="text-second text-sm" id="draftsNumber"></p>
+    </div>
+</div>
+<div class="inbox-body">
+    <div id="draftList">
+        <div class="loader_container">
+            <div class="spinner"></div>
+        </div>
+    </div>           
+</div>
+<!-- Modal Drafts-->
+<div aria-hidden="true" aria-labelledby="myDraftModal" role="dialog" tabindex="-1" id="myDraftModal"
+    class="modal fade" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title">Draft</h4>
+            </div>
+            <div class="modal-body">
+                <form id="draft-form" role="form" class="form-horizontal" action="/api/mail/compose" method="post" enctype="multipart/form-data">
+                    <div class="form-group"> 
+                        <label class="col-lg-2 control-label">To</label>
+                        <div class="col-lg-10">
+                            <input name="receiver" type="text" placeholder="" id="receiverDraftInput" class="form-control">
+                        </div> 
+                    </div>
+                    <div class="form-group"> 
+                        <label class="col-lg-2 control-label">Bcc</label>
+                        <div class="col-lg-10">
+                            <input name="bcc" type="text" placeholder="" id="bccDraftInput" class="form-control">
+                        </div> 
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Subject</label>
+                        <div class="col-lg-10">
+                            <input name="subject" type="text" placeholder="" id="subjectDraftInput" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Message</label>
+                        <div class="col-lg-10">
+                            <textarea rows="10" cols="30" class="form-control" id="messageDraftInput" name="message"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="wrapper">
+                        <input class="file-input" type="file" name="item" id="file" style="display:none" multiple>
+                        <label for="file">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Browse File to Upload</p>
+                        </label>
+                        <section class="progress-area"></section>
+                        <section class="uploaded-area"></section>
+                    </div>
+                    <hr>
+                    <div class="flex justify-between">
+                        <div class="btn btn-danger mr-2 btnDeleteDraft">Delete Draft</div>
+                        <div>
+                            <div class="btn bg-theme mr-2" id="btnUpdateDraft">Update Draft</div>
+                            <button class="btn btn-primary" type="submit">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+<script src="/js/main.js"></script>
+<script src="/js/drafts.js"></script>
+
+
+

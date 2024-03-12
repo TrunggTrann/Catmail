@@ -1,0 +1,70 @@
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="/css/signin.css">
+</head>
+<body>
+  <div class='flex justify-center align-center bg-primary fixed p-80 top-0 bottom-0 left-0 right-0 h-screen'>
+        <div class='w-full bg-white rounded-xl overflow-hidden'> 
+          <div class=' flex justify-between border-4 border-blue-100'>
+              <div class='left flex-1 p-3'>
+                  <h1 class='text-bold text-xl m-0 p-0 my-1 bold'>Create new account</h1>
+                  <p class='text-2xl text-second m-0 p-0 my-1 mb-3'>Hey, Enter your details to get sign up to your account</p>
+                  <form action='/api/auth/signup' method="post">
+                      <div class="flex justify-between">
+                        <div class='flex flex-col text-2xl my-4 mr-2'>
+                            <div class="flex">
+                              <label for="firstname" class="text-bold">First name</label><p class="p-0 m-0" style="color:red">(*)</p>
+                            </div>
+                            <input placeholder='First name' id="firstname" name="firstname" class='py-1 px-2 rounded-base my-1 text-second' required/>
+                        </div>
+                        <div class='flex flex-col text-2xl my-4 font-medium'>
+                            <div class="flex">
+                              <label for="lastname" class="text-bold">Last name</label><p class="p-0 m-0" style="color:red">(*)</p>
+                            </div>
+                            <input placeholder='Last name' id="lastname"  name="lastname" class='py-1 px-2 rounded-base my-1 text-second' required/>
+                        </div>
+                      </div>
+                      <div class='flex flex-col text-2xl my-4 font-medium'>
+                          <div class="flex">
+                              <label for="email" class="text-bold">Email address</label><p class="p-0 m-0" style="color:red">(*)</p>
+                            </div>
+                          <input type="email" id="email" name="email" placeholder='you@domain.com' class='py-1 px-2 rounded-base my-1 text-second' required/>
+                      </div>
+                      <div class='flex flex-col text-2xl my-4 font-medium'>
+                          <div class="flex">
+                              <label for="password" class="text-bold">Password</label><p class="p-0 m-0" style="color:red">(*)</p>
+                            </div>
+                          <input type="password" id="password" name="password" placeholder='••••••••••' autoComplete='on' class='py-1 px-2 rounded-base my-1 text-second' required/>
+                      </div>
+                      {{#if success_msg }}
+                        <div class="alert alert-success">{{success_msg}}</div>
+                        {{/if}}
+                      {{#if error_msg  }}
+                        <div class="alert alert-danger">{{error_msg}}</div>
+                      {{/if}}
+                      <button type="submit" class='btn-primary btn w-full py-2 my-1 rounded-lg text-white rounded-base'>Sign up</button>                 
+                  </form>
+                  <hr>
+                  <div>
+                    <a href="/api/auth/google">
+                      <button type="button" 
+                          class='btn btn-danger w-full py-2 rounded-lg rounded-base'
+                      >
+                        <i class="fab fa-google me-2"></i>
+                          Sign up with Google
+                      </button>
+                    </a>
+                  </div>
+                  <div class='flex justify-center my-1 text-second'>
+                      Aldready have an account? 
+                      <a href="/login" class='ml-1 text-primary'> Login </a> 
+                  </div>
+              </div>
+              <div class='right-img bg-second'>
+                  <img src="/img/bgSignin.png" />
+              </div>
+          </div>
+        </div>      
+  </div>
+</body>
+

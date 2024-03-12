@@ -1,0 +1,31 @@
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="/css/signin.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+  <div class='flex justify-center align-center bg-primary fixed p-80 top-0 bottom-0 left-0 right-0 h-screen'>
+        <div class='w-full bg-white rounded-xl overflow-hidden text-black'  style="width: 400px">       
+          <div class=' flex justify-between border-4 border-blue-100'>
+              <div class='left flex-1 p-3'>
+                  <h1 class='text-bold text-xl m-0 p-0 my-1 bold'>Log in with Admin</h1>
+                  <form action='/api/auth/login/admin' method="post">            
+                      <div class='flex flex-col text-2xl my-4 font-medium'>
+                          <div class="flex">
+                              <label for="username"  class="text-bold">Username</label><p class="p-0 m-0" style="color:red">(*)</p>
+                            </div>
+                          <input type="text" id="username" name="username" placeholder='you@domain.com' class='py-1 px-2 rounded-base my-1 text-second' required/>
+                      </div>
+                      <div class='flex flex-col text-2xl my-4 font-medium'>
+                          <div class="flex">
+                              <label for="password"  class="text-bold">Password</label><p class="p-0 m-0" style="color:red">(*)</p>
+                            </div>
+                          <input type="password" id="password" name="password" placeholder='••••••••••' autoComplete='on' class='py-1 px-2 rounded-base my-1 text-second' required/>
+                      </div>
+                      <button type="submit" class='btn-primary btn w-full py-2 my-1 rounded-lg text-white rounded-base'>Log in</button>                 
+                  </form>
+              </div>
+          </div>
+        </div>      
+  </div>
+</body>

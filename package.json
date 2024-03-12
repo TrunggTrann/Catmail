@@ -1,0 +1,53 @@
+{
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.18.3",
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "babel-cli": "^6.26.0",
+    "babel-node": "^0.0.1-security",
+    "bcryptjs": "^2.4.3",
+    "binary": "^0.3.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.0.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "express-flash": "^0.0.2",
+    "express-flash-message": "^3.0.2",
+    "express-handlebars": "^6.0.7",
+    "express-rate-limit": "^6.4.0",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.0",
+    "generate-password": "^1.7.0",
+    "jsonwebtoken": "^9.0.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.10.4",
+    "mongoose-gridfs": "^1.3.0",
+    "mongoose-type-email": "^1.1.2",
+    "multer": "^1.4.4",
+    "paginate": "^0.2.0",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "string-similarity": "^4.0.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
+    "@babel/node": "^7.18.5",
+    "@babel/plugin-transform-runtime": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "babel-preset-minify": "^0.5.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.16"
+  },
+  "scripts": {
+    "init-db": "node init-db.js",
+    "start": "nodemon app.js",
+    "dev": "nodemon --exec babel-node src/app.js",
+    "build": "npx babel ./src -d ./build/src",
+    "clean": "rm -rf ./build"
+  }
+}

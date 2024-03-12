@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header" style="background-color: #deefff;">Config</div>
+            <div class="card-body">
+            <form id="email-limits-form">
+                <div class="form-group">
+                    <label for="max-recipients">Max Recipients:</label>
+                    <input type="number" class="form-control" id="max-recipients" name="maxRecipients" required>
+                </div>
+                <div class="form-group">
+                    <label for="max-attachments">Max Attachments:</label>
+                    <input type="number" class="form-control" id="max-attachments" name="maxAttachments" required>
+                </div>
+                <div class="form-group">
+                    <label for="max-attachment-size">Max Attachment Size (MB):</label>
+                    <input type="number" class="form-control" id="max-attachment-size" name="maxAttachmentSize" required>
+                </div>
+                <div class="form-group">
+                    <label for="max-email-size">Max Email Size (MB):</label>
+                    <input type="number" class="form-control" id="max-email-size" name="maxEmailSize" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-config">Save</button>
+            </form>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>

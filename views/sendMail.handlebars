@@ -1,0 +1,144 @@
+<head>
+    <title>Catmail</title>
+</head>
+
+<div class="flex flex-1 h-screen">
+    <div class="w-full w-full h-screen flex flex-col" id="allMails">
+        <div class="inbox-head">
+            <div>
+                <h3 class="text-primary text-xl bold">Send mail</h3>
+                <p class="text-second text-sm">{{mails.length}} Messages</p>
+            </div>
+            <!--Search -->
+            <form action="#" class="w-full">
+                <div class="container-input">
+                    <input type="text" placeholder="Search" name="text" class="input">
+                    <svg fill="#1062fa" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z" fill-rule="evenodd"></path>
+                    </svg>
+                </div>
+            </form>
+        </div>
+        <div class="mail-option">
+            <div class="chk-all">
+                <input type="checkbox" class="mail-checkbox mail-group-checkbox" id="checkAll">
+                <div class="btn-group">
+                    <a data-toggle="dropdown" id="checkAll" href="#" class="btn mini all" aria-expanded="false">
+                        <i class="fa fa-angle-down "></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li id="checkAll1"><a href="#"> All</a></li>
+                        <li id="checkNone"><a href="#"> None</a></li>
+                        <li id="checkRead"><a href="#"> Read</a></li>
+                        <li id="checkUnread"><a href="#"> Unread</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a data-original-title="Refresh" data-placement="top" data-toggle="dropdown" href="#"
+                    class="btn mini tooltips">
+                    <i class=" fa fa-refresh"></i>
+                </a>
+            </div>
+            <div class="btn-group hidden-phone">
+                <a data-toggle="dropdown" href="#" class="btn mini blue" aria-expanded="false">
+                    More
+                    <i class="fa fa-angle-down "></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" class="markRead"><i class="fa fa-pencil"></i> Mark as Read</a></li>
+                    <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" class="deleteBtn"><i class="fa fa-trash-o"></i> Delete</a></li>
+                </ul>
+            </div>
+            <div class="btn-group deletebtn"></div>
+        </div>
+        <div class="inbox-body flex-1 overflow-y">
+            <div id="mailList">
+                {{#if (ifeq mails.length 0)}}
+                    <div class="loader_container">
+                        <img src="/img/nomail.jpg" />
+                        <h4 class="text-second my-3">No send mail found associated with your account.</h4 class="text-second">
+                    </div>
+                {{else}}
+                    {{#each mails}}
+                    <div class="bg-theme w-full flex rounded-base relative mail-item cursor-pointer my-1" id={{_id}}>
+                        <div class="flex ml-2 my-2 align-start" data-tooltip="Select">
+                            <input type="checkbox" class="mail-checkbox" id="checkMail-{{_id}}" name="checkMail">
+                        </div>
+                        <div class="flex ml-2 my-2 align-start text-second">
+                            <div class="inbox-small-cells important-mail text-base {{#if isImportant}} yellow {{else}} {{/if}}" id="important-{{_id}}" role="button"><i class="fas fa-star"></i></div>
+                        </div>
+                        <div class="py-2 mx-2 flex w-full"> 
+                            <img class="w-base h-base rounded-full mr-2 my-1" src="{{sender.avatar}}" />
+                            <div>
+                                <p class="m-0 p-0 text-base text-second">Me</p>
+                                <h4 class="m-0 p-0 text-lg text-second"> {{truncateString subject 80}}</h4>
+                                <p class="m-0 p-0 text-sm text-second">
+                                    {{truncateString message 250}}
+                                </p>
+                            </div>
+                            <div class="mail-date text-second text-sm italic flex-1 justify-end absolute" style="right: 15px">{{date}}</div>
+
+                        </div>
+                        <div class="text-second absolute mail-icon align-center" style="top: 10px; right: 15px">
+                            <div class="mr-2">
+                                <div title="Unsend" id="unsend-mail" id="unsend-{{_id}}" href="#unsendModal" data-toggle="modal"><i class="fa fa-undo" id="hi"></i></div>
+                            </div>
+                            <div class="mr-2">
+                                <div title="Delete" class="delete-mail" id="delete-{{_id}}"><i class="fa fa-trash-o" id="hi"></i></div>
+                            </div>
+                            <div class="">
+                                <div title="Add label" id="labelAs" href="#myModal" data-toggle="modal"><i class="fa fa-add"></i></div>
+                            </div>
+                        </div>
+                    </div>                  
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div id="detailMail" class="flex-1 h-full"></div>
+   
+</div>
+<!-- Modal Unsend Mail -->
+<div class="modal fade" id="unsendModal" tabindex="-1" role="dialog" aria-labelledby="unsendModal" aria-hidden="true">
+    <div class="modal-dialog"> 
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Unsend Mail</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            Are you sure you want to unsend mail from everyone?<strong class="nameDel"></strong>?
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" id="confirmUnsendButton">Unsend</button>
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Đóng</button>
+        </div>
+        
+      </div>
+    </div>
+</div>
+</body>
+<script>
+    function changeActive(id) {
+        var items = document.getElementById(id);
+            
+        const isRead = true
+        $.post('/updateData', { isRead })
+        .done(function(response) {
+          // Xử lý kết quả từ server
+          alert(response.message);
+        })
+        .fail(function(error) {
+          console.error('Lỗi khi cập nhật dữ liệu: ', error);
+        });
+    }
+    
+</script>
+
