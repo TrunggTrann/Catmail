@@ -6,9 +6,6 @@ Các bước chạy project:
 - Bước 3: cài đặt cơ sở dữ liệu bằng câu lệnh: node init-db.js
 - Bước 4: chạy project bằng câu lệnh: npm start hoặc node index.js
 
-nếu trong quá trình chạy mà project có gặp vấn đề gì, xin hãy liên hệ một trong hai email sau:
-- 52000727@student.tdtu.edu.vn
-- 52100374@student.tdtu.edu.vn
 
 ## Getting started
 
@@ -23,14 +20,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.duthu.net/catteam/ck_nodejs.git
+git remote add origin https://github.com/TrunggTrann/Catmail.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.duthu.net/catteam/ck_nodejs/-/settings/integrations)
+- [ ] [Set up project integrations][(https://gitlab.duthu.net/catteam/ck_nodejs/-/settings/integrations)](https://github.com/TrunggTrann/Catmail.git)
 
 ## Collaborate with your team
 
